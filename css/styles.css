@@ -1554,7 +1554,8 @@ body.menu-open .burger span:nth-child(3) {
 
   .plate-grid,
   .why-grid,
-  .steps {
+  .steps,
+  .audit-stamps {
     grid-template-columns: 1fr;
   }
 
