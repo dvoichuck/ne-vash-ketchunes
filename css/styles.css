@@ -1205,10 +1205,6 @@ body.menu-open .burger span:nth-child(3) {
   }
 
   .plate-card:nth-child(n + 5) {
-    border-bottom: 1px solid var(--grey);
-  }
-
-  .plate-card:nth-child(n + 5) {
     border-bottom: 0;
   }
 
