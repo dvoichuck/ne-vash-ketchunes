@@ -133,12 +133,23 @@ select {
   clip-path: polygon(50% 0, 100% 50%, 50% 100%, 0 50%);
 }
 
-/* About */
-.about-grid {
+/* About — Figma who_we_are */
+.about-head {
   display: grid;
-  grid-template-columns: 1.1fr 0.9fr;
-  gap: clamp(32px, 6vw, 120px);
+  grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
+  gap: clamp(24px, 6vw, 120px);
   align-items: end;
+  margin-bottom: clamp(32px, 5vw, 48px);
+}
+
+.about-head .h1-black {
+  margin: 0;
+  max-width: 12ch;
+}
+
+.about-copy-wrap {
+  display: grid;
+  gap: 20px;
 }
 
 .about-copy {
@@ -148,120 +159,74 @@ select {
   max-width: 52ch;
 }
 
-.about-side {
-  display: flex;
-  flex-direction: column;
-  gap: 28px;
+.about-tagline {
+  margin: 0;
+  font-size: clamp(18px, 2vw, 22px);
+  font-weight: 800;
+  font-style: italic;
+  text-transform: uppercase;
+  line-height: 1.25;
 }
 
-.ingredients-card {
-  position: relative;
+.ingredients-block {
+  display: grid;
+  grid-template-columns: minmax(160px, 0.38fr) minmax(0, 1fr);
+  align-items: stretch;
+  border: 1px solid var(--black);
+  box-shadow: var(--shadow-lg);
+  overflow: hidden;
+  max-width: 920px;
+}
+
+.ingredients-label {
   background: var(--red);
   color: var(--white);
   padding: 20px;
-  border: 1px solid var(--black);
-  box-shadow: var(--shadow-lg);
-  max-width: 370px;
+  display: flex;
+  align-items: flex-start;
 }
 
-.ingredients-card > p {
-  margin: 0 0 18px;
-  font-style: italic;
+.ingredients-label p {
+  margin: 0;
+  font-size: 18px;
   font-weight: 800;
+  font-style: italic;
   text-transform: uppercase;
-  color: var(--white);
+  line-height: 1.25;
 }
 
-.ingredients-card ul {
+.ingredients-list {
   list-style: none;
   margin: 0;
   padding: 0;
   display: grid;
-  gap: 8px;
-}
-
-.ingredients-card li {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  padding: 12px 16px;
-  border: 1px solid var(--black);
   background: var(--white);
-  color: var(--black);
-  font-size: 14px;
-  font-weight: 900;
-  font-style: italic;
-  text-transform: uppercase;
 }
 
-.ingredients-card li:first-child {
-  border-top: 1px solid var(--black);
-  padding-top: 12px;
-}
-
-.ingredients-card li::before {
-  content: "+";
-  color: var(--red);
-  font-weight: 900;
-}
-
-.market {
-  margin-top: clamp(48px, 8vw, 80px);
+.ingredients-list li {
   display: grid;
-  grid-template-columns: 1.1fr 0.9fr;
-  gap: clamp(24px, 6vw, 160px);
-  align-items: end;
-}
-
-.market .h1-black {
-  max-width: 12ch;
-}
-
-.market-panel {
-  position: relative;
-  min-height: 280px;
-  background: var(--red);
-  border: 1px solid var(--black);
-  overflow: hidden;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-}
-
-.market-art {
-  position: absolute;
-  inset: auto 0 48px;
-  width: 110%;
-  max-width: none;
-  left: -5%;
-  opacity: 0.95;
-  animation: floaty 8s ease-in-out infinite;
-}
-
-.market-strip {
-  position: relative;
-  z-index: 1;
-  display: flex;
+  grid-template-columns: 40px 1fr auto;
   gap: 10px;
-  padding: 14px 24px;
-  background: var(--white);
-  border-top: 1px solid var(--black);
-  overflow-x: auto;
+  align-items: center;
+  padding: 12px 20px;
+  border-bottom: 1px solid rgba(34, 34, 34, 0.12);
   font-size: 14px;
   font-weight: 900;
   font-style: italic;
-  color: var(--red);
   text-transform: uppercase;
 }
 
-@keyframes floaty {
-  0%,
-  100% {
-    transform: translateY(0) rotate(-2deg);
-  }
-  50% {
-    transform: translateY(-10px) rotate(1deg);
-  }
+.ingredients-list li:last-child {
+  border-bottom: 0;
+}
+
+.ingredients-list .ing-num {
+  color: var(--red);
+}
+
+.ingredients-list b {
+  color: var(--red);
+  font-weight: 900;
 }
 
 /* Plate / services */
@@ -1379,10 +1344,10 @@ body.menu-open .burger span:nth-child(3) {
     padding: 24px var(--pad);
   }
 
-  .about-grid,
+  .about-head,
+  .ingredients-block,
   .audit-grid,
   .contact-grid,
-  .market,
   .finale-inner {
     grid-template-columns: 1fr;
   }
