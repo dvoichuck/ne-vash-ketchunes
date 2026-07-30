@@ -156,7 +156,7 @@ select {
 
 .ingredients-card {
   position: relative;
-  background: var(--black);
+  background: var(--red);
   color: var(--white);
   padding: 20px;
   border: 1px solid var(--black);
@@ -169,6 +169,7 @@ select {
   font-style: italic;
   font-weight: 800;
   text-transform: uppercase;
+  color: var(--white);
 }
 
 .ingredients-card ul {
@@ -176,12 +177,17 @@ select {
   margin: 0;
   padding: 0;
   display: grid;
-  gap: 0;
+  gap: 8px;
 }
 
 .ingredients-card li {
-  padding: 10px 0;
-  border-top: 1px solid rgba(255, 255, 255, 0.18);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 16px;
+  border: 1px solid var(--black);
+  background: var(--white);
+  color: var(--black);
   font-size: 14px;
   font-weight: 900;
   font-style: italic;
@@ -189,13 +195,14 @@ select {
 }
 
 .ingredients-card li:first-child {
-  border-top: 0;
-  padding-top: 0;
+  border-top: 1px solid var(--black);
+  padding-top: 12px;
 }
 
 .ingredients-card li::before {
-  content: "+ ";
-  color: var(--yellow);
+  content: "+";
+  color: var(--red);
+  font-weight: 900;
 }
 
 .market {
@@ -498,6 +505,17 @@ select {
 
 .btn-light:hover {
   background: var(--yellow);
+}
+
+.btn-on-red {
+  background: var(--black);
+  color: var(--white);
+  border-color: var(--black);
+}
+
+.btn-on-red:hover {
+  background: var(--white);
+  color: var(--black);
 }
 
 .btn-ghost {
@@ -874,7 +892,15 @@ body.menu-open .burger span:nth-child(3) {
   }
 }
 
-/* Why */
+/* Section surfaces vs Figma fills */
+.about {
+  background: var(--light);
+}
+
+.why {
+  background: var(--white);
+}
+
 .why-head {
   display: flex;
   align-items: flex-end;
@@ -1109,21 +1135,13 @@ body.menu-open .burger span:nth-child(3) {
   margin-top: 8px;
 }
 
-/* Finale */
+/* Finale — Figma red_block */
 .finale {
   position: relative;
-  padding: clamp(80px, 12vw, 120px) var(--pad);
-  background: var(--black);
+  padding: clamp(64px, 8vw, 100px) var(--pad);
+  background: var(--red);
   color: var(--white);
   overflow: hidden;
-}
-
-.finale::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: url("../assets/hero-bg.jpg") center / cover;
-  opacity: 0.28;
 }
 
 .finale-inner {
@@ -1132,12 +1150,23 @@ body.menu-open .burger span:nth-child(3) {
   width: min(100%, var(--max));
   margin: 0 auto;
   display: grid;
+  grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
+  gap: clamp(32px, 5vw, 64px);
+  align-items: center;
+}
+
+.finale-copy {
+  display: grid;
   gap: 24px;
   justify-items: start;
 }
 
 .finale .h1-white {
   max-width: 14ch;
+  color: var(--white);
+  -webkit-text-stroke: 1px var(--black);
+  text-shadow: var(--shadow);
+  paint-order: stroke fill;
 }
 
 .finale p {
@@ -1145,6 +1174,39 @@ body.menu-open .burger span:nth-child(3) {
   max-width: 48ch;
   font-size: 16px;
   line-height: 1.55;
+  color: var(--white);
+}
+
+.finale-cta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-top: 8px;
+}
+
+.finale-visual {
+  position: relative;
+  min-height: 360px;
+  display: grid;
+  place-items: center;
+}
+
+.finale-grid {
+  position: absolute;
+  inset: 18% -4% auto;
+  width: 110%;
+  max-width: none;
+  opacity: 0.95;
+  pointer-events: none;
+}
+
+.finale-photo {
+  position: relative;
+  z-index: 1;
+  width: min(100%, 438px);
+  aspect-ratio: 438 / 553;
+  object-fit: cover;
+  border: 1px solid var(--black);
 }
 
 /* Footer */
@@ -1174,6 +1236,17 @@ body.menu-open .burger span:nth-child(3) {
   display: flex;
   gap: 24px;
   flex-wrap: wrap;
+}
+
+.footer-socials {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.footer-socials .social {
+  background: var(--white);
+  color: var(--black);
 }
 
 .footer-links a,
@@ -1309,7 +1382,8 @@ body.menu-open .burger span:nth-child(3) {
   .about-grid,
   .audit-grid,
   .contact-grid,
-  .market {
+  .market,
+  .finale-inner {
     grid-template-columns: 1fr;
   }
 
