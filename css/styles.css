@@ -170,12 +170,12 @@ select {
 
 .ingredients-block {
   display: grid;
-  grid-template-columns: minmax(160px, 0.38fr) minmax(0, 1fr);
+  grid-template-columns: minmax(200px, 0.42fr) minmax(0, 1fr);
   align-items: stretch;
+  width: 100%;
   border: 1px solid var(--black);
   box-shadow: var(--shadow-lg);
   overflow: hidden;
-  max-width: 920px;
 }
 
 .ingredients-label {
@@ -184,6 +184,8 @@ select {
   padding: 20px;
   display: flex;
   align-items: flex-start;
+  align-self: stretch;
+  min-height: 100%;
 }
 
 .ingredients-label p {
