@@ -8,7 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@800&family=Inter:ital,wght@0,400;0,500;0,700;0,800;0,900;1,500;1,700;1,800;1,900&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="css/styles.css" />
+  <link rel="stylesheet" href="css/styles.css?v=4" />
   <link rel="icon" href="assets/mark.svg" type="image/svg+xml" />
 </head>
 <body>
@@ -28,6 +28,17 @@
 
       <div class="header-actions">
         <a class="btn btn-ghost btn-sm" href="#contact" data-i18n="nav.talk">Напиши нам</a>
+        <div class="socials" aria-label="Social">
+          <a class="social" href="https://t.me/" target="_blank" rel="noopener" aria-label="Telegram">
+            <svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true"><path fill="currentColor" d="M9.4 15.4 9.2 18c.3 0 .5-.1.7-.3l1.7-1.6 3.5 2.6c.6.3 1.1.2 1.2-.6l2.2-10.4c.2-.8-.3-1.1-.9-.9L4.3 11c-.8.3-.8.8-.1 1l3.4 1.1 7.9-5c.4-.2.7 0 .4.3l-6.5 7z"/></svg>
+          </a>
+          <a class="social" href="https://www.instagram.com/" target="_blank" rel="noopener" aria-label="Instagram">
+            <svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true"><path fill="currentColor" d="M12 7.2A4.8 4.8 0 1 0 12 16.8 4.8 4.8 0 0 0 12 7.2Zm0 7.9a3.1 3.1 0 1 1 0-6.2 3.1 3.1 0 0 1 0 6.2Zm5.3-8.2a1.1 1.1 0 1 1-2.2 0 1.1 1.1 0 0 1 2.2 0ZM12 3.5c-2.3 0-2.6 0-3.5.1a5.7 5.7 0 0 0-3.9 2.2A5.7 5.7 0 0 0 2.4 9.7C2.3 10.6 2.3 10.9 2.3 12s0 1.4.1 2.3a5.7 5.7 0 0 0 2.2 3.9 5.7 5.7 0 0 0 3.9 2.2c.9.1 1.2.1 3.5.1s2.6 0 3.5-.1a5.7 5.7 0 0 0 3.9-2.2 5.7 5.7 0 0 0 2.2-3.9c.1-.9.1-1.2.1-3.5s0-2.6-.1-3.5a5.7 5.7 0 0 0-2.2-3.9 5.7 5.7 0 0 0-3.9-2.2C14.6 3.5 14.3 3.5 12 3.5Zm0 1.6c2.3 0 2.5 0 3.4.1a4 4 0 0 1 2.7 2.7c.1.9.1 1.1.1 3.4s0 2.5-.1 3.4a4 4 0 0 1-2.7 2.7c-.9.1-1.1.1-3.4.1s-2.5 0-3.4-.1a4 4 0 0 1-2.7-2.7c-.1-.9-.1-1.1-.1-3.4s0-2.5.1-3.4a4 4 0 0 1 2.7-2.7c.9-.1 1.1-.1 3.4-.1Z"/></svg>
+          </a>
+          <a class="social" href="https://www.linkedin.com/" target="_blank" rel="noopener" aria-label="LinkedIn">
+            <svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true"><path fill="currentColor" d="M6.3 9.2H3.6V20h2.7V9.2ZM5 7.8a1.6 1.6 0 1 0 0-3.2 1.6 1.6 0 0 0 0 3.2ZM20.4 20h-2.7v-5.7c0-1.5-.5-2.5-1.8-2.5-1 0-1.5.7-1.8 1.3-.1.2-.1.6-.1.9V20h-2.7s0-9.5 0-10.8h2.7v1.7c.4-.6 1.2-1.5 2.9-1.5 2.1 0 3.7 1.4 3.7 4.4V20Z"/></svg>
+          </a>
+        </div>
         <button
           class="lang"
           type="button"
@@ -115,45 +126,55 @@
             </div>
           </div>
         </div>
+
+        <div class="market reveal">
+          <h2 class="h1-black" data-i18n="market.title">Ми знаємо ринок<br />зсередини</h2>
+          <div class="market-panel">
+            <img class="market-art" src="assets/grid-ellipse.svg" alt="" />
+            <div class="market-strip" aria-hidden="true">
+              <span>01</span><span>02</span><span>03</span><span>04</span><span>05</span><span>06</span><span>07</span><span>08</span><span>09</span>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
 
     <section class="plate section" id="services">
       <div class="section-inner">
         <div class="plate-head reveal">
-          <p class="label-ru" data-i18n="plate.label">бізнес-задачі</p>
+          <p class="label-ru"><span data-i18n="plate.label">бізнес-задачі</span><i class="dot dot-light"></i></p>
           <h2 class="h1-white" data-i18n="plate.title">Що у тебе<br />на тарілці?</h2>
-          <a class="btn btn-light" href="#contact"><span data-i18n="plate.cta">Обери інгредієнт</span> <i></i></a>
+          <a class="btn btn-red" href="#contact"><span data-i18n="plate.cta">Обери інгредієнт</span> <i></i></a>
         </div>
 
         <div class="plate-grid">
           <article class="plate-card reveal">
-            <span>01</span>
+            <div class="plate-card-top"><span>01</span><i class="plate-dot"></i></div>
             <h3 data-i18n="plate.1.title">Потрібно більше трафіку?</h3>
             <p data-i18n="plate.1.text">Ми створюємо performance-системи, які можна масштабувати</p>
           </article>
           <article class="plate-card reveal">
-            <span>02</span>
+            <div class="plate-card-top"><span>02</span><i class="plate-dot"></i></div>
             <h3 data-i18n="plate.2.title">Ніхто не знає твій бренд?</h3>
             <p data-i18n="plate.2.text">Ми допомагаємо бренду стати помітним і впізнаваним на ринку</p>
           </article>
           <article class="plate-card reveal">
-            <span>03</span>
+            <div class="plate-card-top"><span>03</span><i class="plate-dot"></i></div>
             <h3 data-i18n="plate.3.title">Конкуренти виглядають яскравіше?</h3>
             <p data-i18n="plate.3.text">Ми створюємо креатив, який допомагає виділятися</p>
           </article>
           <article class="plate-card reveal">
-            <span>04</span>
+            <div class="plate-card-top"><span>04</span><i class="plate-dot"></i></div>
             <h3 data-i18n="plate.4.title">Конференції коштують грошей, а угод немає?</h3>
             <p data-i18n="plate.4.text">Ми перетворюємо участь у конференціях на інструмент розвитку бізнесу</p>
           </article>
           <article class="plate-card reveal">
-            <span>05</span>
+            <div class="plate-card-top"><span>05</span><i class="plate-dot"></i></div>
             <h3 data-i18n="plate.5.title">Мерч осідає в готельному номері?</h3>
             <p data-i18n="plate.5.text">Ми створюємо мерч, який справді хочеться використовувати і зберігати</p>
           </article>
           <article class="plate-card reveal">
-            <span>06</span>
+            <div class="plate-card-top"><span>06</span><i class="plate-dot"></i></div>
             <h3 data-i18n="plate.6.title">Крутий продукт, але немає маркетингової системи?</h3>
             <p data-i18n="plate.6.text">Ми збираємо маркетингову систему з нуля</p>
           </article>
@@ -164,7 +185,7 @@
     <section class="process section" id="process">
       <div class="section-inner">
         <div class="process-head reveal">
-          <p class="label-ru" data-i18n="process.label">як ми працюємо</p>
+          <p class="label-ru"><span data-i18n="process.label">як ми працюємо</span><i class="dot"></i></p>
           <h2 class="h1-black" data-i18n="process.title">Ми не починаємо<br />з інструментів</h2>
           <p class="h2-italic process-sub" data-i18n="process.sub">Ми починаємо з проблеми</p>
         </div>
@@ -172,32 +193,42 @@
         <div class="steps">
           <article class="step reveal">
             <p class="step-n" data-i18n="step.1.n">Крок 1</p>
-            <h3 data-i18n="step.1.title">Знаходимо проблему</h3>
-            <p data-i18n="step.1.text">Визначаємо, що саме заважає бізнесу рости</p>
+            <div class="step-body">
+              <h3 data-i18n="step.1.title">Знаходимо проблему</h3>
+              <p data-i18n="step.1.text">Визначаємо, що саме заважає бізнесу рости</p>
+            </div>
           </article>
           <img class="step-arrow" src="assets/arrow-right.svg" alt="" />
           <article class="step reveal">
             <p class="step-n" data-i18n="step.2.n">Крок 2</p>
-            <h3 data-i18n="step.2.title">Збираємо рецепт</h3>
-            <p data-i18n="step.2.text">Підбираємо правильний набір інструментів</p>
+            <div class="step-body">
+              <h3 data-i18n="step.2.title">Збираємо рецепт</h3>
+              <p data-i18n="step.2.text">Підбираємо правильний набір інструментів</p>
+            </div>
           </article>
           <img class="step-arrow" src="assets/arrow-right.svg" alt="" />
           <article class="step reveal">
             <p class="step-n" data-i18n="step.3.n">Крок 3</p>
-            <h3 data-i18n="step.3.title">Додаємо соус</h3>
-            <p data-i18n="step.3.text">Створюємо стратегію, креатив і комунікацію</p>
+            <div class="step-body">
+              <h3 data-i18n="step.3.title">Додаємо соус</h3>
+              <p data-i18n="step.3.text">Створюємо стратегію, креатив і комунікацію</p>
+            </div>
           </article>
           <img class="step-arrow" src="assets/arrow-right.svg" alt="" />
           <article class="step reveal">
             <p class="step-n" data-i18n="step.4.n">Крок 4</p>
-            <h3 data-i18n="step.4.title">Міряємо результат</h3>
-            <p data-i18n="step.4.text">Рахуємо не кількість активностей, а бізнес-результат</p>
+            <div class="step-body">
+              <h3 data-i18n="step.4.title">Міряємо результат</h3>
+              <p data-i18n="step.4.text">Рахуємо не кількість активностей, а бізнес-результат</p>
+            </div>
           </article>
           <img class="step-arrow" src="assets/arrow-right.svg" alt="" />
           <article class="step reveal">
             <p class="step-n" data-i18n="step.5.n">Крок 5</p>
-            <h3 data-i18n="step.5.title">Масштабуємо те, що працює</h3>
-            <p data-i18n="step.5.text">Масштабуємо ефективні рішення</p>
+            <div class="step-body">
+              <h3 data-i18n="step.5.title">Масштабуємо те, що працює</h3>
+              <p data-i18n="step.5.text">Масштабуємо ефективні рішення</p>
+            </div>
           </article>
         </div>
       </div>
@@ -354,7 +385,7 @@
     </div>
   </div>
 
-  <script src="js/i18n.js?v=3"></script>
-  <script src="js/main.js?v=3"></script>
+  <script src="js/i18n.js?v=4"></script>
+  <script src="js/main.js?v=4"></script>
 </body>
 </html>
