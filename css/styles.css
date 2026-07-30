@@ -661,6 +661,7 @@ select {
   inset: 0 0 0 auto;
   z-index: 40;
   width: min(100%, 501px);
+  height: 100dvh;
   padding: 115px 66px 48px 66px;
   background: var(--red);
   color: var(--white);
@@ -668,6 +669,8 @@ select {
   flex-direction: column;
   align-items: flex-start;
   box-shadow: 0 0 0 100vmax rgba(34, 34, 34, 0.55);
+  overflow: hidden;
+  box-sizing: border-box;
 }
 
 .mobile-menu[hidden] {
@@ -679,6 +682,9 @@ select {
   flex-direction: column;
   gap: 60px;
   margin-top: 0;
+  flex: 1 1 auto;
+  justify-content: center;
+  min-height: 0;
 }
 
 .mobile-menu-nav a {
@@ -697,20 +703,23 @@ select {
 }
 
 .mobile-menu-cta {
-  margin-top: 48px;
+  margin-top: 0;
   min-width: 216px;
   width: 216px;
   height: 40px;
   padding: 0 20px;
   box-sizing: border-box;
+  flex-shrink: 0;
 }
 
 .mobile-menu-socials {
   display: flex;
   align-items: center;
   gap: 10px;
-  margin-top: auto;
-  padding-top: 48px;
+  margin-top: 40px;
+  padding-top: 0;
+  padding-bottom: env(safe-area-inset-bottom, 0);
+  flex-shrink: 0;
 }
 
 .mobile-menu-socials .social {
@@ -1361,24 +1370,26 @@ body.menu-open .burger span:nth-child(3) {
 
   .mobile-menu {
     width: 100%;
-    padding: 100px 24px 40px;
+    padding: 88px 24px max(32px, env(safe-area-inset-bottom, 0px));
     align-items: center;
   }
 
   .mobile-menu-nav {
     align-items: center;
-    margin-top: 40px;
+    margin-top: 0;
+    gap: clamp(28px, 8vh, 60px);
   }
 
   .mobile-menu-cta {
     width: 100%;
     max-width: 328px;
-    margin-top: auto;
+    margin-top: 0;
   }
 
   .mobile-menu-socials {
     justify-content: center;
-    padding-top: 32px;
+    margin-top: 32px;
+    padding-top: 0;
   }
 }
 
