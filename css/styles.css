@@ -1174,6 +1174,7 @@ body.menu-open .burger span:nth-child(3) {
   color: var(--black);
   background: var(--white);
   cursor: pointer;
+  outline: none;
 }
 
 .select-menu [role="option"]:last-child {
