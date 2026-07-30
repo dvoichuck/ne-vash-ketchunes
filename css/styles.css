@@ -610,11 +610,6 @@ select {
   box-shadow: none;
 }
 
-.audit-list em {
-  font-style: italic;
-  font-weight: inherit;
-}
-
 .burger {
   display: none;
   width: 24px;
@@ -968,61 +963,116 @@ body.menu-open .burger span:nth-child(3) {
   grid-column: span 1;
 }
 
-/* Audit */
+/* Audit — Figma free_audit */
 .audit {
   background: var(--yellow);
 }
 
-.audit-grid {
+.audit-head {
   display: grid;
-  grid-template-columns: 1.1fr 0.9fr;
-  gap: clamp(32px, 6vw, 80px);
-  align-items: start;
+  gap: 30px;
+  margin-bottom: 40px;
 }
 
-.audit-copy p:not(.label-ru) {
-  max-width: 42ch;
-  margin: 24px 0 32px;
+.audit-top {
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr);
+  gap: clamp(24px, 6vw, 120px);
+  align-items: end;
 }
 
-.audit-list {
-  background: var(--white);
-  border: 1px solid var(--black);
-  box-shadow: var(--shadow-lg);
-  padding: 24px;
-}
-
-.audit-list > p {
-  margin: 0 0 18px;
-  font-style: italic;
-  font-weight: 800;
-  text-transform: uppercase;
-  color: var(--red);
-}
-
-.audit-list ul {
-  list-style: none;
+.audit-top .h1-black {
   margin: 0;
-  padding: 0;
+  max-width: 14ch;
 }
 
-.audit-list li {
-  display: flex;
-  gap: 14px;
-  padding: 10px 0;
-  border-top: 1px solid rgba(34, 34, 34, 0.12);
+.audit-copy {
+  margin: 0;
+  font-size: 16px;
+  line-height: 1.6;
+  max-width: 42ch;
+}
+
+.audit-sub {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 800;
   font-style: italic;
+  line-height: 25px;
   text-transform: uppercase;
-  font-size: 14px;
 }
 
-.audit-list li:first-child {
-  border-top: 0;
+.audit-content {
+  display: grid;
+  justify-items: center;
+  gap: 30px;
 }
 
-.audit-list span {
+.audit-list-title {
+  margin: 0;
+  text-align: center;
+  font-size: 18px;
+  font-weight: 800;
+  font-style: italic;
+  line-height: 25px;
+  text-transform: uppercase;
   color: var(--red);
-  min-width: 1.6em;
+  -webkit-text-stroke: 1px var(--black);
+  text-shadow: 1px 1px 0 var(--black);
+  paint-order: stroke fill;
+}
+
+.audit-stamps {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 20px 30px;
+  width: 100%;
+}
+
+.audit-stamp {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  filter: drop-shadow(4px 4px 0 rgba(34, 34, 34, 0.25));
+}
+
+.stamp-edge {
+  display: block;
+  width: 100%;
+  height: 7px;
+  object-fit: fill;
+}
+
+.stamp-body {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 24px;
+  min-height: 161px;
+  padding: 20px;
+  background: var(--white);
+}
+
+.stamp-num {
+  font-size: 18px;
+  font-weight: 500;
+  font-style: italic;
+  line-height: 28px;
+  text-transform: uppercase;
+  color: var(--red);
+}
+
+.stamp-label {
+  font-size: 18px;
+  font-weight: 800;
+  font-style: italic;
+  line-height: 25px;
+  text-transform: uppercase;
+  color: var(--black);
+}
+
+.audit-cta {
+  min-width: min(100%, 318px);
 }
 
 /* Contact */
@@ -1457,7 +1507,7 @@ body.menu-open .burger span:nth-child(3) {
 
   .about-top,
   .ingredients-block,
-  .audit-grid,
+  .audit-top,
   .contact-grid,
   .finale-inner {
     grid-template-columns: 1fr;
@@ -1470,6 +1520,10 @@ body.menu-open .burger span:nth-child(3) {
 
   .about-tagline {
     max-width: none;
+  }
+
+  .audit-stamps {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
   .form {
