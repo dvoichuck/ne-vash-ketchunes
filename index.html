@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="uk">
+<html lang="uk" data-lang="ua">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -20,15 +20,24 @@
       </a>
 
       <nav class="nav" aria-label="Primary">
-        <a href="#about">About us</a>
-        <a href="#services">Services</a>
-        <a href="#process">Process</a>
-        <a href="#audit">Free audit</a>
+        <a href="#about" data-i18n="nav.about">Про нас</a>
+        <a href="#services" data-i18n="nav.services">Послуги</a>
+        <a href="#process" data-i18n="nav.process">Процес</a>
+        <a href="#audit" data-i18n="nav.audit">Аудит</a>
       </nav>
 
       <div class="header-actions">
-        <a class="btn btn-ghost btn-sm" href="#contact">Let’s talk</a>
-        <button class="lang" type="button" aria-label="Language">UA</button>
+        <a class="btn btn-ghost btn-sm" href="#contact" data-i18n="nav.talk">Напиши нам</a>
+        <button
+          class="lang"
+          type="button"
+          id="lang-toggle"
+          data-lang-toggle
+          aria-label="Мова: українська. Перемкнути на англійську"
+          data-i18n-aria="lang.aria"
+        >
+          <span data-lang-code>UA</span>
+        </button>
         <button class="burger" type="button" aria-label="Open menu" aria-expanded="false">
           <span></span><span></span><span></span>
         </button>
@@ -36,11 +45,11 @@
     </header>
 
     <div class="mobile-menu" hidden>
-      <a href="#about">About us</a>
-      <a href="#services">Services</a>
-      <a href="#process">Process</a>
-      <a href="#audit">Free audit</a>
-      <a class="btn btn-light" href="#contact">Let’s talk</a>
+      <a href="#about" data-i18n="nav.about">Про нас</a>
+      <a href="#services" data-i18n="nav.services">Послуги</a>
+      <a href="#process" data-i18n="nav.process">Процес</a>
+      <a href="#audit" data-i18n="nav.audit">Аудит</a>
+      <a class="btn btn-light" href="#contact" data-i18n="nav.talk">Напиши нам</a>
     </div>
 
     <section class="hero">
@@ -48,15 +57,15 @@
         <img src="assets/hero-bg.jpg" alt="" />
       </div>
       <div class="hero-inner">
-        <p class="brand-lockup reveal">ne vash ketchunes</p>
-        <h1 class="hero-title reveal">
-          <span>ne vash mix</span>
-          <span>for your profit</span>
+        <p class="brand-lockup" data-i18n="hero.brand">ne vash ketchunes</p>
+        <h1 class="hero-title">
+          <span data-i18n="hero.title.1">ne vash mix</span>
+          <span data-i18n="hero.title.2">for your profit</span>
         </h1>
-        <p class="hero-sub reveal">Performance, creative and marketing solutions for the affiliate industry</p>
-        <div class="hero-cta reveal">
-          <a class="btn btn-red" href="#audit">Get a Free Audit <i></i></a>
-          <a class="btn btn-light" href="#services">Our Services <i></i></a>
+        <p class="hero-sub" data-i18n="hero.sub">Performance, creative і marketing-рішення для affiliate-індустрії</p>
+        <div class="hero-cta">
+          <a class="btn btn-red" href="#audit"><span data-i18n="hero.cta.audit">Отримати аудит</span> <i></i></a>
+          <a class="btn btn-light" href="#services"><span data-i18n="hero.cta.services">Наші послуги</span> <i></i></a>
         </div>
       </div>
       <div class="ticker" aria-hidden="true">
@@ -83,27 +92,25 @@
 
     <section class="about section" id="about">
       <div class="section-inner">
-        <div class="eyebrow reveal"><span>who we are</span><i class="dot"></i></div>
+        <div class="eyebrow reveal"><span data-i18n="about.eyebrow">хто ми</span><i class="dot"></i></div>
         <div class="about-grid">
-          <p class="about-copy reveal">
-            <strong>Ne Vash Ketchunes</strong> — це команда практикующих спеціалістів, які знають партнерську індустрію зсередини.
-            Ми запускаємо партнерські програми, розвиваємо бренди й медіапроєкти, організовуємо заходи,
-            збираємо системи оцінки ефективності, займаємось PR і креативом.
+          <p class="about-copy reveal" data-i18n="about.copy">
+            <strong>Ne Vash Ketchunes</strong> — це команда практикуючих спеціалістів, які знають партнерську індустрію зсередини. Ми запускаємо партнерські програми, розвиваємо бренди й медіапроєкти, організовуємо заходи, збираємо системи оцінки ефективності, займаємось PR і креативом.
           </p>
           <div class="about-side reveal">
-            <h2 class="h2-italic">Ne Vash.<br />Not Just Another Agency</h2>
+            <h2 class="h2-italic" data-i18n="about.side">Ne Vash.<br />Не просто ще одне агентство</h2>
             <div class="ingredients-card">
-              <p>наші інгредієнти</p>
+              <p data-i18n="about.ingredients">наші інгредієнти</p>
               <ul>
-                <li>Performance marketing</li>
-                <li>Strategic &amp; PR</li>
-                <li>SMM</li>
-                <li>Events</li>
-                <li>Creative</li>
-                <li>YouTube &amp; Video Production</li>
-                <li>Recruiting</li>
-                <li>AI Integration</li>
-                <li>Branding</li>
+                <li data-i18n="ing.1">Performance marketing</li>
+                <li data-i18n="ing.2">Strategic &amp; PR</li>
+                <li data-i18n="ing.3">SMM</li>
+                <li data-i18n="ing.4">Events</li>
+                <li data-i18n="ing.5">Creative</li>
+                <li data-i18n="ing.6">YouTube &amp; Video Production</li>
+                <li data-i18n="ing.7">Recruiting</li>
+                <li data-i18n="ing.8">AI Integration</li>
+                <li data-i18n="ing.9">Branding</li>
               </ul>
             </div>
           </div>
@@ -114,41 +121,41 @@
     <section class="plate section" id="services">
       <div class="section-inner">
         <div class="plate-head reveal">
-          <p class="label-ru">бізнес-задачі</p>
-          <h2 class="h1-white">What’s on<br />Your Plate?</h2>
-          <a class="btn btn-light" href="#contact">Find your ingredient <i></i></a>
+          <p class="label-ru" data-i18n="plate.label">бізнес-задачі</p>
+          <h2 class="h1-white" data-i18n="plate.title">Що у тебе<br />на тарілці?</h2>
+          <a class="btn btn-light" href="#contact"><span data-i18n="plate.cta">Обери інгредієнт</span> <i></i></a>
         </div>
 
         <div class="plate-grid">
           <article class="plate-card reveal">
             <span>01</span>
-            <h3>Need more traffic?</h3>
-            <p>Ми створюємо performance-системи, які можна масштабувати</p>
+            <h3 data-i18n="plate.1.title">Потрібно більше трафіку?</h3>
+            <p data-i18n="plate.1.text">Ми створюємо performance-системи, які можна масштабувати</p>
           </article>
           <article class="plate-card reveal">
             <span>02</span>
-            <h3>Nobody knows your brand?</h3>
-            <p>Ми допомагаємо бренду стати помітним і впізнаваним на ринку</p>
+            <h3 data-i18n="plate.2.title">Ніхто не знає твій бренд?</h3>
+            <p data-i18n="plate.2.text">Ми допомагаємо бренду стати помітним і впізнаваним на ринку</p>
           </article>
           <article class="plate-card reveal">
             <span>03</span>
-            <h3>Your competitors look more memorable?</h3>
-            <p>Ми створюємо креатив, який допомагає виділятися</p>
+            <h3 data-i18n="plate.3.title">Конкуренти виглядають яскравіше?</h3>
+            <p data-i18n="plate.3.text">Ми створюємо креатив, який допомагає виділятися</p>
           </article>
           <article class="plate-card reveal">
             <span>04</span>
-            <h3>Conferences cost money but bring no deals?</h3>
-            <p>Ми перетворюємо участь у конференціях на інструмент розвитку бізнесу</p>
+            <h3 data-i18n="plate.4.title">Конференції коштують грошей, а угод немає?</h3>
+            <p data-i18n="plate.4.text">Ми перетворюємо участь у конференціях на інструмент розвитку бізнесу</p>
           </article>
           <article class="plate-card reveal">
             <span>05</span>
-            <h3>Your merch ends up in a hotel room?</h3>
-            <p>Ми створюємо мерч, який справді хочеться використовувати і зберігати</p>
+            <h3 data-i18n="plate.5.title">Мерч осідає в готельному номері?</h3>
+            <p data-i18n="plate.5.text">Ми створюємо мерч, який справді хочеться використовувати і зберігати</p>
           </article>
           <article class="plate-card reveal">
             <span>06</span>
-            <h3>Great product, no marketing system?</h3>
-            <p>Ми збираємо маркетингову систему з нуля</p>
+            <h3 data-i18n="plate.6.title">Крутий продукт, але немає маркетингової системи?</h3>
+            <p data-i18n="plate.6.text">Ми збираємо маркетингову систему з нуля</p>
           </article>
         </div>
       </div>
@@ -157,40 +164,40 @@
     <section class="process section" id="process">
       <div class="section-inner">
         <div class="process-head reveal">
-          <p class="label-ru">як ми працюємо</p>
-          <h2 class="h1-black">We Don’t Start<br />with Tools</h2>
-          <p class="h2-italic process-sub">We Start with the Problem</p>
+          <p class="label-ru" data-i18n="process.label">як ми працюємо</p>
+          <h2 class="h1-black" data-i18n="process.title">Ми не починаємо<br />з інструментів</h2>
+          <p class="h2-italic process-sub" data-i18n="process.sub">Ми починаємо з проблеми</p>
         </div>
 
         <div class="steps">
           <article class="step reveal">
-            <p class="step-n">Крок 1</p>
-            <h3>Find the Problem</h3>
-            <p>Визначаємо, що саме заважає бізнесу рости</p>
+            <p class="step-n" data-i18n="step.1.n">Крок 1</p>
+            <h3 data-i18n="step.1.title">Знаходимо проблему</h3>
+            <p data-i18n="step.1.text">Визначаємо, що саме заважає бізнесу рости</p>
           </article>
           <img class="step-arrow" src="assets/arrow-right.svg" alt="" />
           <article class="step reveal">
-            <p class="step-n">Крок 2</p>
-            <h3>Build the Recipe</h3>
-            <p>Підбираємо правильний набір інструментів</p>
+            <p class="step-n" data-i18n="step.2.n">Крок 2</p>
+            <h3 data-i18n="step.2.title">Збираємо рецепт</h3>
+            <p data-i18n="step.2.text">Підбираємо правильний набір інструментів</p>
           </article>
           <img class="step-arrow" src="assets/arrow-right.svg" alt="" />
           <article class="step reveal">
-            <p class="step-n">Крок 3</p>
-            <h3>Add the Sauce</h3>
-            <p>Створюємо стратегію, креатив і комунікацію</p>
+            <p class="step-n" data-i18n="step.3.n">Крок 3</p>
+            <h3 data-i18n="step.3.title">Додаємо соус</h3>
+            <p data-i18n="step.3.text">Створюємо стратегію, креатив і комунікацію</p>
           </article>
           <img class="step-arrow" src="assets/arrow-right.svg" alt="" />
           <article class="step reveal">
-            <p class="step-n">Крок 4</p>
-            <h3>Measure the Result</h3>
-            <p>Рахуємо не кількість активностей, а бізнес-результат</p>
+            <p class="step-n" data-i18n="step.4.n">Крок 4</p>
+            <h3 data-i18n="step.4.title">Міряємо результат</h3>
+            <p data-i18n="step.4.text">Рахуємо не кількість активностей, а бізнес-результат</p>
           </article>
           <img class="step-arrow" src="assets/arrow-right.svg" alt="" />
           <article class="step reveal">
-            <p class="step-n">Крок 5</p>
-            <h3>Scale What Works</h3>
-            <p>Масштабуємо ефективні рішення</p>
+            <p class="step-n" data-i18n="step.5.n">Крок 5</p>
+            <h3 data-i18n="step.5.title">Масштабуємо те, що працює</h3>
+            <p data-i18n="step.5.text">Масштабуємо ефективні рішення</p>
           </article>
         </div>
       </div>
@@ -199,39 +206,41 @@
     <section class="why section">
       <div class="section-inner">
         <div class="why-head reveal">
-          <p class="label-ru">чому ne vash ketchunes</p>
-          <h2 class="h1-black">Why Us?</h2>
+          <div>
+            <p class="label-ru" data-i18n="why.label">чому ne vash ketchunes</p>
+            <h2 class="h1-black" data-i18n="why.title">Чому ми?</h2>
+          </div>
           <div class="star-badge">
             <img src="assets/star-red.svg" alt="" />
-            <span>100%<br />business<br />results</span>
+            <span data-i18n="why.star">100%<br />business<br />results</span>
           </div>
         </div>
 
         <div class="why-grid">
           <article class="why-card reveal">
             <span>01</span>
-            <h3>We know the industry</h3>
-            <p>Ми розуміємо affiliate-культуру, людей, продукти й бізнес-моделі ринку</p>
+            <h3 data-i18n="why.1.title">Ми знаємо індустрію</h3>
+            <p data-i18n="why.1.text">Ми розуміємо affiliate-культуру, людей, продукти й бізнес-моделі ринку</p>
           </article>
           <article class="why-card reveal">
             <span>02</span>
-            <h3>We think in business metrics</h3>
-            <p>Оцінюємо не кількість виконаних активностей, а їхній вплив на бізнес</p>
+            <h3 data-i18n="why.2.title">Думаємо бізнес-метриками</h3>
+            <p data-i18n="why.2.text">Оцінюємо не кількість виконаних активностей, а їхній вплив на бізнес</p>
           </article>
           <article class="why-card reveal">
             <span>03</span>
-            <h3>We mix strategy and execution</h3>
-            <p>Ми не лише кажемо, що треба зробити. Ми можемо створити й реалізувати рішення</p>
+            <h3 data-i18n="why.3.title">Міксуємо стратегію і execution</h3>
+            <p data-i18n="why.3.text">Ми не лише кажемо, що треба зробити. Ми можемо створити й реалізувати рішення</p>
           </article>
           <article class="why-card reveal">
             <span>04</span>
-            <h3>We understand the culture</h3>
-            <p>Ми говоримо з ринком однією мовою</p>
+            <h3 data-i18n="why.4.title">Розуміємо культуру</h3>
+            <p data-i18n="why.4.text">Ми говоримо з ринком однією мовою</p>
           </article>
           <article class="why-card reveal">
             <span>05</span>
-            <h3>We make marketing memorable</h3>
-            <p>Бо хороший маркетинг має не лише працювати, а й залишатися в пам’яті</p>
+            <h3 data-i18n="why.5.title">Робимо маркетинг, який запам’ятовується</h3>
+            <p data-i18n="why.5.text">Бо хороший маркетинг має не лише працювати, а й залишатися в пам’яті</p>
           </article>
         </div>
       </div>
@@ -240,25 +249,24 @@
     <section class="audit section" id="audit">
       <div class="section-inner audit-grid">
         <div class="audit-copy reveal">
-          <p class="label-ru">free audit</p>
-          <h2 class="h1-black">Not Sure What<br />Your Business<br />Is Missing?</h2>
-          <p>
-            Пропонуємо безкоштовно подивитись на поточну маркетингову систему бізнесу
-            і визначити основні точки росту.
+          <p class="label-ru" data-i18n="audit.label">безкоштовний аудит</p>
+          <h2 class="h1-black" data-i18n="audit.title">Не впевнений,<br />чого бракує<br />бізнесу?</h2>
+          <p data-i18n="audit.copy">
+            Пропонуємо безкоштовно подивитись на поточну маркетингову систему бізнесу і визначити основні точки росту.
           </p>
-          <a class="btn btn-red" href="#contact">Get a Free Marketing Audit <i></i></a>
+          <a class="btn btn-red" href="#contact"><span data-i18n="audit.cta">Отримати маркетинговий аудит</span> <i></i></a>
         </div>
         <div class="audit-list reveal">
-          <p>В рамках аудиту можна аналізувати:</p>
+          <p data-i18n="audit.list">У рамках аудиту можна аналізувати:</p>
           <ul>
-            <li><span>01</span> brand</li>
-            <li><span>02</span> communication</li>
-            <li><span>03</span> digital presence</li>
-            <li><span>04</span> performance</li>
-            <li><span>05</span> social media</li>
-            <li><span>06</span> creative</li>
-            <li><span>07</span> events</li>
-            <li><span>08</span> growth opportunities</li>
+            <li><span>01</span> <em data-i18n="audit.1">бренд</em></li>
+            <li><span>02</span> <em data-i18n="audit.2">комунікацію</em></li>
+            <li><span>03</span> <em data-i18n="audit.3">digital presence</em></li>
+            <li><span>04</span> <em data-i18n="audit.4">performance</em></li>
+            <li><span>05</span> <em data-i18n="audit.5">соцмережі</em></li>
+            <li><span>06</span> <em data-i18n="audit.6">креатив</em></li>
+            <li><span>07</span> <em data-i18n="audit.7">івенти</em></li>
+            <li><span>08</span> <em data-i18n="audit.8">точки росту</em></li>
           </ul>
         </div>
       </div>
@@ -267,40 +275,39 @@
     <section class="contact section" id="contact">
       <div class="section-inner contact-grid">
         <div class="contact-copy reveal">
-          <p class="label-ru">place your order</p>
-          <h2 class="h1-black">
-            <em>Let’s cook</em>
-            something<br />ne vash.
+          <p class="label-ru" data-i18n="contact.label">зроби замовлення</p>
+          <h2 class="h1-black" data-i18n="contact.title">
+            <em>Let’s cook</em> something<br />ne vash.
           </h2>
-          <p>Розкажіть, що у вас на порядку денному. Ми підберемо відповідний рецепт.</p>
+          <p data-i18n="contact.copy">Розкажіть, що у вас на порядку денному. Ми підберемо відповідний рецепт.</p>
         </div>
 
         <form class="form reveal" id="order-form">
           <label>
-            <span>Your name</span>
-            <input type="text" name="name" placeholder="John Smith" required />
+            <span data-i18n="form.name">Твоє ім’я</span>
+            <input type="text" name="name" data-i18n-placeholder="form.name.ph" placeholder="Іван Коваленко" required />
           </label>
           <label>
-            <span>Company</span>
-            <input type="text" name="company" placeholder="Company name" />
+            <span data-i18n="form.company">Компанія</span>
+            <input type="text" name="company" data-i18n-placeholder="form.company.ph" placeholder="Назва компанії" />
           </label>
           <label>
-            <span>Telegram / Email</span>
-            <input type="text" name="contact" placeholder="@username or email" required />
+            <span data-i18n="form.contact">Telegram / Email</span>
+            <input type="text" name="contact" data-i18n-placeholder="form.contact.ph" placeholder="@username або email" required />
           </label>
           <label>
-            <span>What do you need help with?</span>
+            <span data-i18n="form.need">З чим потрібна допомога?</span>
             <select name="need">
-              <option value="">Select an ingredient</option>
-              <option>Performance</option>
-              <option>Creative</option>
-              <option>Branding</option>
-              <option>Events</option>
-              <option>Strategy &amp; PR</option>
-              <option>Full mix</option>
+              <option value="" data-i18n="form.need.ph">Обери інгредієнт</option>
+              <option data-i18n="form.opt.1">Performance</option>
+              <option data-i18n="form.opt.2">Creative</option>
+              <option data-i18n="form.opt.3">Branding</option>
+              <option data-i18n="form.opt.4">Events</option>
+              <option data-i18n="form.opt.5">Strategy &amp; PR</option>
+              <option data-i18n="form.opt.6">Full mix</option>
             </select>
           </label>
-          <button class="btn btn-red" type="submit">Send the order <i></i></button>
+          <button class="btn btn-red" type="submit"><span data-i18n="form.submit">Надіслати замовлення</span> <i></i></button>
         </form>
       </div>
     </section>
@@ -309,13 +316,13 @@
       <div class="finale-inner reveal">
         <div class="star-badge star-badge-lg">
           <img src="assets/star-yellow.svg" alt="" />
-          <span>Ready<br />to find<br />your mix?</span>
+          <span data-i18n="finale.star">Ready<br />to find<br />your mix?</span>
         </div>
-        <h2 class="h1-white">Ready to Find<br />Your Ne Vash Mix?</h2>
-        <p>Розкажіть, яку задачу треба вирішити. Ми допоможемо зрозуміти, які інструменти потрібні саме вашому бізнесу.</p>
+        <h2 class="h1-white" data-i18n="finale.title">Готовий знайти<br />свій Ne Vash Mix?</h2>
+        <p data-i18n="finale.copy">Розкажіть, яку задачу треба вирішити. Ми допоможемо зрозуміти, які інструменти потрібні саме вашому бізнесу.</p>
         <div class="hero-cta">
-          <a class="btn btn-red" href="#audit">Get a Free Audit <i></i></a>
-          <a class="btn btn-light" href="#services">Our Services <i></i></a>
+          <a class="btn btn-red" href="#audit"><span data-i18n="hero.cta.audit">Отримати аудит</span> <i></i></a>
+          <a class="btn btn-light" href="#services"><span data-i18n="hero.cta.services">Наші послуги</span> <i></i></a>
         </div>
       </div>
     </section>
@@ -327,10 +334,10 @@
           <span>ne vash<br />ketchunes</span>
         </a>
         <div class="footer-links">
-          <a href="#">Користувацька угода</a>
-          <a href="#">Політика конфіденційності</a>
+          <a href="#" data-i18n="footer.terms">Користувацька угода</a>
+          <a href="#" data-i18n="footer.privacy">Політика конфіденційності</a>
         </div>
-        <p>© 2026 ne vash ketchunes</p>
+        <p data-i18n="footer.copy">© 2026 ne vash ketchunes</p>
       </div>
     </footer>
   </div>
@@ -340,13 +347,14 @@
       <button class="popup-close" type="button" aria-label="Close">×</button>
       <div class="star-badge">
         <img src="assets/star-yellow.svg" alt="" />
-        <span>Order<br />received</span>
+        <span data-i18n="popup.star">Order<br />received</span>
       </div>
-      <h3>Order received</h3>
-      <p>Ми вже на кухні. Скоро повернемось з рецептом.</p>
+      <h3 data-i18n="popup.title">Замовлення прийнято</h3>
+      <p data-i18n="popup.copy">Ми вже на кухні. Скоро повернемось з рецептом.</p>
     </div>
   </div>
 
-  <script src="js/main.js"></script>
+  <script src="js/i18n.js?v=3"></script>
+  <script src="js/main.js?v=3"></script>
 </body>
 </html>
