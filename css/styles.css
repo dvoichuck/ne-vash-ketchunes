@@ -161,6 +161,7 @@ select {
   padding: 20px;
   border: 1px solid var(--black);
   box-shadow: var(--shadow-lg);
+  max-width: 370px;
 }
 
 .ingredients-card > p {
@@ -190,6 +191,11 @@ select {
 .ingredients-card li:first-child {
   border-top: 0;
   padding-top: 0;
+}
+
+.ingredients-card li::before {
+  content: "+ ";
+  color: var(--yellow);
 }
 
 .market {
@@ -277,11 +283,37 @@ select {
   min-width: 240px;
 }
 
+.plate-layout {
+  display: grid;
+  grid-template-columns: 1.35fr 0.85fr;
+  gap: 20px;
+  align-items: stretch;
+}
+
 .plate-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(2, 1fr);
   gap: 0;
   border: 1px solid var(--grey);
+}
+
+.plate-visual {
+  position: relative;
+  min-height: 420px;
+  border: 1px solid var(--grey);
+  overflow: hidden;
+  background: #111;
+}
+
+.plate-visual img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.8s ease;
+}
+
+.plate-visual:hover img {
+  transform: scale(1.04);
 }
 
 .plate-card {
@@ -296,11 +328,11 @@ select {
   transition: background 0.2s ease;
 }
 
-.plate-card:nth-child(3n) {
+.plate-card:nth-child(2n) {
   border-right: 0;
 }
 
-.plate-card:nth-child(n + 4) {
+.plate-card:nth-child(n + 5) {
   border-bottom: 0;
 }
 
@@ -840,12 +872,19 @@ body.menu-open .burger span:nth-child(3) {
   border: 1px solid var(--black);
   box-shadow: var(--shadow-lg);
   min-height: 180px;
+  transition: transform 0.2s ease, background 0.2s ease;
+}
+
+.why-card:hover {
+  transform: translateY(-4px);
+  background: var(--yellow);
 }
 
 .why-card span {
   display: block;
   margin-bottom: 16px;
   font-size: 12px;
+  font-weight: 900;
   font-style: italic;
   color: var(--red);
 }
@@ -857,6 +896,10 @@ body.menu-open .burger span:nth-child(3) {
   font-style: italic;
   text-transform: uppercase;
   line-height: 1.25;
+  color: var(--red);
+  -webkit-text-stroke: 0.6px var(--black);
+  text-shadow: var(--shadow);
+  paint-order: stroke fill;
 }
 
 .why-card p {
@@ -897,7 +940,9 @@ body.menu-open .burger span:nth-child(3) {
 .audit-list > p {
   margin: 0 0 18px;
   font-style: italic;
-  font-weight: 700;
+  font-weight: 800;
+  text-transform: uppercase;
+  color: var(--red);
 }
 
 .audit-list ul {
@@ -970,17 +1015,25 @@ body.menu-open .burger span:nth-child(3) {
 .form input,
 .form select {
   width: 100%;
-  padding: 16px 18px;
-  border: 1px solid var(--black);
-  background: var(--white);
-  box-shadow: var(--shadow);
+  padding: 14px 0;
+  border: 0;
+  border-bottom: 1px solid var(--black);
+  background: transparent;
+  box-shadow: none;
   outline: none;
+  font-weight: 900;
+  font-style: italic;
+  text-transform: uppercase;
+}
+
+.form input::placeholder {
+  opacity: 0.55;
 }
 
 .form input:focus,
 .form select:focus {
-  outline: 2px solid var(--red);
-  outline-offset: 1px;
+  outline: none;
+  border-bottom-color: var(--red);
 }
 
 .form .btn {
@@ -1044,8 +1097,9 @@ body.menu-open .burger span:nth-child(3) {
   flex-wrap: wrap;
 }
 
-.footer .logo {
-  color: var(--white);
+.footer .logo-footer img {
+  height: 28px;
+  width: auto;
 }
 
 .footer-links {
@@ -1132,20 +1186,25 @@ body.menu-open .burger span:nth-child(3) {
 
 /* Responsive */
 @media (max-width: 1100px) {
+  .plate-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .plate-visual {
+    min-height: 320px;
+    order: -1;
+  }
+
   .plate-grid,
   .why-grid {
     grid-template-columns: repeat(2, 1fr);
-  }
-
-  .plate-card:nth-child(3n) {
-    border-right: 1px solid var(--grey);
   }
 
   .plate-card:nth-child(2n) {
     border-right: 0;
   }
 
-  .plate-card:nth-child(n + 4) {
+  .plate-card:nth-child(n + 5) {
     border-bottom: 1px solid var(--grey);
   }
 
