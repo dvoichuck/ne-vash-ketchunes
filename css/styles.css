@@ -660,29 +660,75 @@ select {
   position: fixed;
   inset: 0 0 0 auto;
   z-index: 40;
-  width: min(100%, 420px);
-  padding: 100px 40px 40px;
+  width: min(100%, 501px);
+  padding: 115px 66px 48px 66px;
   background: var(--red);
   color: var(--white);
   display: flex;
   flex-direction: column;
-  gap: 28px;
-  box-shadow: -20px 0 60px rgba(34, 34, 34, 0.45);
+  align-items: flex-start;
+  box-shadow: 0 0 0 100vmax rgba(34, 34, 34, 0.55);
 }
 
 .mobile-menu[hidden] {
   display: none;
 }
 
-.mobile-menu a:not(.btn) {
-  font-size: 28px;
-  font-family: var(--font-display);
+.mobile-menu-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 60px;
+  margin-top: 0;
+}
+
+.mobile-menu-nav a {
+  font-family: var(--font-body);
+  font-size: 18px;
   font-weight: 800;
+  font-style: italic;
+  line-height: 25px;
   text-transform: uppercase;
+  color: var(--white);
+  transition: color 0.15s ease;
+}
+
+.mobile-menu-nav a:hover {
+  color: var(--yellow);
+}
+
+.mobile-menu-cta {
+  margin-top: 48px;
+  min-width: 216px;
+  width: 216px;
+  height: 40px;
+  padding: 0 20px;
+  box-sizing: border-box;
+}
+
+.mobile-menu-socials {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: auto;
+  padding-top: 48px;
+}
+
+.mobile-menu-socials .social {
+  background: var(--white);
+  color: var(--black);
 }
 
 body.menu-open {
   overflow: hidden;
+}
+
+body.menu-open .header {
+  z-index: 50;
+  color: var(--white);
+}
+
+body.menu-open .logo img {
+  filter: brightness(0) invert(1);
 }
 
 body.menu-open .burger span:nth-child(1) {
@@ -698,7 +744,7 @@ body.menu-open .burger span:nth-child(3) {
 }
 
 .burger span {
-  transition: transform 0.2s ease, opacity 0.2s ease;
+  transition: transform 0.2s ease, opacity 0.15s ease;
 }
 
 /* Hero */
@@ -1315,7 +1361,24 @@ body.menu-open .burger span:nth-child(3) {
 
   .mobile-menu {
     width: 100%;
-    padding: 88px 24px 32px;
+    padding: 100px 24px 40px;
+    align-items: center;
+  }
+
+  .mobile-menu-nav {
+    align-items: center;
+    margin-top: 40px;
+  }
+
+  .mobile-menu-cta {
+    width: 100%;
+    max-width: 328px;
+    margin-top: auto;
+  }
+
+  .mobile-menu-socials {
+    justify-content: center;
+    padding-top: 32px;
   }
 }
 
