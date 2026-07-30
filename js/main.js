@@ -27,8 +27,6 @@
     syncCustomSelectLabels();
   }
 
-  applyLang(currentLang);
-
   // Event delegation — survives DOM swaps / late buttons
   document.addEventListener("click", (event) => {
     const toggle = event.target.closest("[data-lang-toggle]");
@@ -148,6 +146,8 @@
       }
     });
   }
+
+  applyLang(currentLang);
 
   function resetCustomSelects() {
     selectRoots.forEach((root) => {
