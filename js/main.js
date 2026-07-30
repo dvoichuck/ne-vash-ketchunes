@@ -24,6 +24,7 @@
   function applyLang(lang) {
     currentLang = setLang(lang);
     syncLangCode(currentLang);
+    syncCustomSelectLabels();
   }
 
   applyLang(currentLang);
@@ -35,6 +36,7 @@
       event.preventDefault();
       currentLang = toggleLang(currentLang);
       syncLangCode(currentLang);
+      syncCustomSelectLabels();
       return;
     }
 
@@ -72,24 +74,213 @@
     });
   });
 
+  /* Custom select — Figma form selector dropdown */
+  const selectRoots = [...document.querySelectorAll("[data-custom-select]")];
+
+  function getSelectParts(root) {
+    return {
+      root,
+      field: root.closest("[data-select-field]"),
+      input: root.querySelector('input[type="hidden"]'),
+      trigger: root.querySelector(".select-trigger"),
+      valueEl: root.querySelector(".select-value"),
+      menu: root.querySelector(".select-menu"),
+      options: [...root.querySelectorAll('[role="option"]')],
+      error: root.closest("[data-select-field]")?.querySelector(".form-error"),
+    };
+  }
+
+  function closeSelect(parts) {
+    parts.root.classList.remove("is-open");
+    parts.menu.hidden = true;
+    parts.trigger.setAttribute("aria-expanded", "false");
+    parts.options.forEach((opt) => opt.classList.remove("is-active"));
+  }
+
+  function closeAllSelects(except) {
+    selectRoots.forEach((root) => {
+      if (root === except) return;
+      closeSelect(getSelectParts(root));
+    });
+  }
+
+  function openSelect(parts) {
+    closeAllSelects(parts.root);
+    parts.root.classList.add("is-open");
+    parts.menu.hidden = false;
+    parts.trigger.setAttribute("aria-expanded", "true");
+    const selected = parts.options.find((opt) => opt.getAttribute("aria-selected") === "true");
+    const focusOpt = selected || parts.options[0];
+    focusOpt?.classList.add("is-active");
+    focusOpt?.focus();
+  }
+
+  function setSelectValue(parts, option) {
+    const value = option?.dataset.value || "";
+    const label = option?.textContent?.trim() || "";
+    parts.input.value = value;
+    parts.options.forEach((opt) => {
+      const on = opt === option;
+      opt.setAttribute("aria-selected", on ? "true" : "false");
+    });
+
+    if (option) {
+      parts.valueEl.textContent = label;
+      parts.valueEl.classList.remove("is-placeholder");
+      parts.valueEl.removeAttribute("data-i18n");
+      parts.field?.classList.remove("is-error");
+      if (parts.error) parts.error.hidden = true;
+    } else {
+      const dict = i18n.translations[currentLang] || i18n.translations.ua;
+      parts.valueEl.textContent = dict["form.need.ph"];
+      parts.valueEl.classList.add("is-placeholder");
+      parts.valueEl.setAttribute("data-i18n", "form.need.ph");
+    }
+  }
+
+  function syncCustomSelectLabels() {
+    selectRoots.forEach((root) => {
+      const parts = getSelectParts(root);
+      const selected = parts.options.find((opt) => opt.getAttribute("aria-selected") === "true");
+      if (selected) {
+        parts.valueEl.textContent = selected.textContent.trim();
+        parts.valueEl.classList.remove("is-placeholder");
+      }
+    });
+  }
+
+  function resetCustomSelects() {
+    selectRoots.forEach((root) => {
+      const parts = getSelectParts(root);
+      closeSelect(parts);
+      setSelectValue(parts, null);
+      parts.field?.classList.remove("is-error");
+      if (parts.error) parts.error.hidden = true;
+    });
+  }
+
+  selectRoots.forEach((root) => {
+    const parts = getSelectParts(root);
+
+    parts.trigger.addEventListener("click", () => {
+      if (parts.root.classList.contains("is-open")) {
+        closeSelect(parts);
+      } else {
+        openSelect(parts);
+      }
+    });
+
+    parts.options.forEach((option) => {
+      option.addEventListener("click", () => {
+        setSelectValue(parts, option);
+        closeSelect(parts);
+        parts.trigger.focus();
+      });
+
+      option.addEventListener("mousemove", () => {
+        parts.options.forEach((opt) => opt.classList.remove("is-active"));
+        option.classList.add("is-active");
+      });
+    });
+
+    parts.trigger.addEventListener("keydown", (event) => {
+      if (event.key === "ArrowDown" || event.key === "Enter" || event.key === " ") {
+        event.preventDefault();
+        openSelect(parts);
+      }
+    });
+
+    parts.menu.addEventListener("keydown", (event) => {
+      const active = parts.options.find((opt) => opt.classList.contains("is-active")) || parts.options[0];
+      const index = parts.options.indexOf(active);
+
+      if (event.key === "Escape") {
+        event.preventDefault();
+        closeSelect(parts);
+        parts.trigger.focus();
+        return;
+      }
+
+      if (event.key === "ArrowDown") {
+        event.preventDefault();
+        const next = parts.options[Math.min(index + 1, parts.options.length - 1)];
+        parts.options.forEach((opt) => opt.classList.remove("is-active"));
+        next.classList.add("is-active");
+        next.focus();
+        return;
+      }
+
+      if (event.key === "ArrowUp") {
+        event.preventDefault();
+        const prev = parts.options[Math.max(index - 1, 0)];
+        parts.options.forEach((opt) => opt.classList.remove("is-active"));
+        prev.classList.add("is-active");
+        prev.focus();
+        return;
+      }
+
+      if (event.key === "Enter" || event.key === " ") {
+        event.preventDefault();
+        if (active) {
+          setSelectValue(parts, active);
+          closeSelect(parts);
+          parts.trigger.focus();
+        }
+      }
+    });
+  });
+
+  document.addEventListener("click", (event) => {
+    if (event.target.closest("[data-custom-select]")) return;
+    closeAllSelects();
+  });
+
+  function closePopup() {
+    if (popup) popup.hidden = true;
+  }
+
   form?.addEventListener("submit", (event) => {
     event.preventDefault();
+
+    const selectField = form.querySelector("[data-select-field]");
+    const needInput = form.querySelector('input[name="need"]');
+    const error = selectField?.querySelector(".form-error");
+    const name = form.querySelector('input[name="name"]');
+    const contact = form.querySelector('input[name="contact"]');
+
+    let valid = true;
+
+    if (name && !name.value.trim()) {
+      valid = false;
+      name.focus();
+    } else if (contact && !contact.value.trim()) {
+      valid = false;
+      contact.focus();
+    } else if (needInput && !needInput.value) {
+      valid = false;
+      selectField?.classList.add("is-error");
+      if (error) error.hidden = false;
+      form.querySelector(".select-trigger")?.focus();
+    }
+
+    if (!valid) return;
+
     popup.hidden = false;
     form.reset();
+    resetCustomSelects();
   });
 
-  popup?.querySelector(".popup-close")?.addEventListener("click", () => {
-    popup.hidden = true;
-  });
+  popup?.querySelector(".popup-ok")?.addEventListener("click", closePopup);
 
   popup?.addEventListener("click", (event) => {
-    if (event.target === popup) popup.hidden = true;
+    if (event.target === popup) closePopup();
   });
 
   document.addEventListener("keydown", (event) => {
     if (event.key === "Escape") {
-      popup.hidden = true;
+      closePopup();
       closeMenu();
+      closeAllSelects();
     }
   });
 

@@ -1010,7 +1010,7 @@ body.menu-open .burger span:nth-child(3) {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: clamp(32px, 6vw, 80px);
-  align-items: start;
+  align-items: center;
 }
 
 .contact-copy em {
@@ -1028,52 +1028,167 @@ body.menu-open .burger span:nth-child(3) {
 
 .form {
   display: grid;
-  gap: 18px;
+  gap: 30px;
+  width: min(100%, 470px);
+  justify-self: end;
 }
 
-.form label {
+.form-field {
   display: grid;
-  gap: 8px;
-}
-
-.form span {
-  font-size: 12px;
-  font-weight: 700;
-  font-style: italic;
-  text-transform: uppercase;
-}
-
-.form span::first-letter {
-  color: var(--red);
-}
-
-.form input,
-.form select {
-  width: 100%;
-  padding: 14px 0;
-  border: 0;
+  gap: 20px;
+  padding-bottom: 11px;
   border-bottom: 1px solid var(--black);
+}
+
+.form-field > span {
+  font-size: 12px;
+  font-weight: 800;
+  line-height: 24px;
+}
+
+.form-field input {
+  width: 100%;
+  padding: 0;
+  border: 0;
   background: transparent;
   box-shadow: none;
   outline: none;
   font-weight: 900;
   font-style: italic;
+  font-size: 14px;
+  line-height: 24px;
+  text-transform: uppercase;
+  color: var(--black);
+}
+
+.form-field input::placeholder {
+  color: var(--black);
+  opacity: 0.6;
+}
+
+.form-field:focus-within {
+  border-bottom-width: 3px;
+  border-bottom-color: var(--grey);
+}
+
+.form-field-select {
+  display: grid;
+  gap: 7px;
+}
+
+.form-field-select.is-error .form-field {
+  border-bottom-color: var(--red);
+  border-bottom-width: 1px;
+}
+
+.form-field-select.is-error .select-value {
+  color: var(--red);
+  opacity: 1;
+}
+
+.form-error {
+  margin: 0;
+  font-size: 12px;
+  font-style: italic;
+  line-height: 24px;
+  color: var(--red);
+}
+
+.form-error[hidden] {
+  display: none;
+}
+
+.custom-select {
+  position: relative;
+}
+
+.select-trigger {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  width: 100%;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+  text-align: left;
+  font: inherit;
+  color: var(--black);
+}
+
+.select-value {
+  font-size: 14px;
+  font-weight: 900;
+  font-style: italic;
+  line-height: 24px;
   text-transform: uppercase;
 }
 
-.form input::placeholder {
-  opacity: 0.55;
+.select-value.is-placeholder {
+  opacity: 0.6;
 }
 
-.form input:focus,
-.form select:focus {
-  outline: none;
-  border-bottom-color: var(--red);
+.select-caret {
+  flex-shrink: 0;
+  width: 11px;
+  height: 8px;
+  color: var(--red);
+  transition: transform 0.15s ease;
+}
+
+.custom-select.is-open .select-caret {
+  transform: rotate(180deg);
+}
+
+.custom-select.is-open .select-value.is-placeholder {
+  opacity: 1;
+}
+
+.select-menu {
+  position: absolute;
+  top: calc(100% + 12px);
+  left: 0;
+  right: 0;
+  z-index: 20;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  background: var(--white);
+  border: 1px solid var(--black);
+  box-shadow: var(--shadow-lg);
+}
+
+.select-menu[hidden] {
+  display: none;
+}
+
+.select-menu [role="option"] {
+  padding: 14px 10px;
+  border-bottom: 1px solid var(--black);
+  font-size: 14px;
+  font-weight: 900;
+  font-style: italic;
+  line-height: 24px;
+  text-transform: uppercase;
+  color: var(--black);
+  background: var(--white);
+  cursor: pointer;
+}
+
+.select-menu [role="option"]:last-child {
+  border-bottom: 0;
+}
+
+.select-menu [role="option"]:hover,
+.select-menu [role="option"].is-active,
+.select-menu [role="option"][aria-selected="true"] {
+  background: var(--red);
+  color: var(--white);
 }
 
 .form .btn {
   width: 100%;
-  margin-top: 8px;
 }
 
 /* Finale — Figma red_block */
@@ -1220,38 +1335,38 @@ body.menu-open .burger span:nth-child(3) {
 
 .popup-card {
   position: relative;
-  width: min(100%, 520px);
-  padding: 48px 40px;
-  background: var(--light);
+  width: min(100%, 641px);
+  margin-top: 80px;
+  padding: 90px 24px 40px;
+  background: var(--white);
   border: 1px solid var(--black);
   box-shadow: var(--shadow-lg);
   text-align: center;
   display: grid;
-  gap: 16px;
+  gap: 30px;
   justify-items: center;
 }
 
-.popup-close {
+.popup-star {
   position: absolute;
-  top: 12px;
-  right: 16px;
-  border: 0;
-  background: transparent;
-  font-size: 28px;
-  line-height: 1;
-  cursor: pointer;
+  top: 0;
+  left: 50%;
+  transform: translate(-50%, -55%);
 }
 
-.popup-card h3 {
+.popup-copy {
   margin: 0;
+  max-width: 22ch;
   font-family: var(--font-display);
-  font-size: 40px;
-  text-transform: uppercase;
-  line-height: 0.95;
+  font-size: clamp(22px, 3vw, 28px);
+  font-weight: 800;
+  font-style: italic;
+  line-height: 1.15;
+  text-transform: none;
 }
 
-.popup-card p {
-  margin: 0;
+.popup-ok {
+  min-width: 167px;
 }
 
 /* Reveal motion */
@@ -1325,6 +1440,11 @@ body.menu-open .burger span:nth-child(3) {
   .contact-grid,
   .finale-inner {
     grid-template-columns: 1fr;
+  }
+
+  .form {
+    justify-self: stretch;
+    width: 100%;
   }
 
   .plate-head {

@@ -8,7 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@800&family=Inter:ital,wght@0,400;0,500;0,700;0,800;0,900;1,500;1,700;1,800;1,900&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="css/styles.css?v=12" />
+  <link rel="stylesheet" href="css/styles.css?v=13" />
   <link rel="icon" href="assets/mark.svg" type="image/svg+xml" />
 </head>
 <body>
@@ -316,38 +316,56 @@
     <section class="contact section" id="contact">
       <div class="section-inner contact-grid">
         <div class="contact-copy reveal">
-          <p class="label-ru" data-i18n="contact.label">зроби замовлення</p>
+          <p class="label-ru" data-i18n="contact.label">place your order</p>
           <h2 class="h1-black" data-i18n="contact.title">
-            <em>Let’s cook</em> something<br />ne vash.
+            <em>Let’s cook</em> something<br />great.
           </h2>
           <p data-i18n="contact.copy">Розкажіть, що у вас на порядку денному. Ми підберемо відповідний рецепт.</p>
         </div>
 
-        <form class="form reveal" id="order-form">
-          <label>
-            <span data-i18n="form.name">Твоє ім’я</span>
-            <input type="text" name="name" data-i18n-placeholder="form.name.ph" placeholder="Іван Коваленко" required />
+        <form class="form reveal" id="order-form" novalidate>
+          <label class="form-field">
+            <span data-i18n="form.name">Your name</span>
+            <input type="text" name="name" data-i18n-placeholder="form.name.ph" placeholder="John Smith" required autocomplete="name" />
           </label>
-          <label>
-            <span data-i18n="form.company">Компанія</span>
-            <input type="text" name="company" data-i18n-placeholder="form.company.ph" placeholder="Назва компанії" />
+          <label class="form-field">
+            <span data-i18n="form.company">Company</span>
+            <input type="text" name="company" data-i18n-placeholder="form.company.ph" placeholder="Company name" autocomplete="organization" />
           </label>
-          <label>
+          <label class="form-field">
             <span data-i18n="form.contact">Telegram / Email</span>
-            <input type="text" name="contact" data-i18n-placeholder="form.contact.ph" placeholder="@username або email" required />
+            <input type="text" name="contact" data-i18n-placeholder="form.contact.ph" placeholder="@username or email" required autocomplete="email" />
           </label>
-          <label>
-            <span data-i18n="form.need">З чим потрібна допомога?</span>
-            <select name="need">
-              <option value="" data-i18n="form.need.ph">Обери інгредієнт</option>
-              <option data-i18n="form.opt.1">Performance</option>
-              <option data-i18n="form.opt.2">Creative</option>
-              <option data-i18n="form.opt.3">Branding</option>
-              <option data-i18n="form.opt.4">Events</option>
-              <option data-i18n="form.opt.5">Strategy &amp; PR</option>
-              <option data-i18n="form.opt.6">Full mix</option>
-            </select>
-          </label>
+          <div class="form-field-select" data-select-field>
+            <div class="form-field">
+              <span id="need-label" data-i18n="form.need">What do you need help with?</span>
+              <div class="custom-select" data-custom-select>
+                <input type="hidden" name="need" value="" required />
+                <button
+                  type="button"
+                  class="select-trigger"
+                  aria-haspopup="listbox"
+                  aria-expanded="false"
+                  aria-labelledby="need-label"
+                >
+                  <span class="select-value is-placeholder" data-i18n="form.need.ph">Select an ingredient</span>
+                  <svg class="select-caret" width="11" height="8" viewBox="0 0 11 8" aria-hidden="true">
+                    <path d="M5.5 7.2 0.8 0.8h9.4L5.5 7.2Z" fill="currentColor" stroke="#222" stroke-width="1" stroke-linejoin="round" />
+                  </svg>
+                </button>
+                <ul class="select-menu" role="listbox" hidden>
+                  <li role="option" tabindex="-1" data-value="performance" data-i18n="form.opt.1">Performance</li>
+                  <li role="option" tabindex="-1" data-value="brand" data-i18n="form.opt.2">Brand</li>
+                  <li role="option" tabindex="-1" data-value="creative" data-i18n="form.opt.3">Creative</li>
+                  <li role="option" tabindex="-1" data-value="events" data-i18n="form.opt.4">Events</li>
+                  <li role="option" tabindex="-1" data-value="merch" data-i18n="form.opt.5">Merch</li>
+                  <li role="option" tabindex="-1" data-value="audit" data-i18n="form.opt.6">Full Marketing Audit</li>
+                  <li role="option" tabindex="-1" data-value="unsure" data-i18n="form.opt.7">Not Sure Yet</li>
+                </ul>
+              </div>
+            </div>
+            <p class="form-error" data-i18n="form.need.error" hidden>Оберіть один із варіантів</p>
+          </div>
           <button class="btn btn-red" type="submit"><span data-i18n="form.submit">Надіслати замовлення</span> <i></i></button>
         </form>
       </div>
@@ -397,17 +415,18 @@
 
   <div class="popup" id="popup" hidden>
     <div class="popup-card">
-      <button class="popup-close" type="button" aria-label="Close">×</button>
-      <div class="star-badge">
+      <div class="star-badge popup-star">
         <img src="assets/star-yellow.svg" alt="" />
         <span data-i18n="popup.star">Order<br />received</span>
       </div>
-      <h3 data-i18n="popup.title">Замовлення прийнято</h3>
-      <p data-i18n="popup.copy">Ми вже на кухні. Скоро повернемось з рецептом.</p>
+      <p class="popup-copy" data-i18n="popup.copy">Наша маркетингова кухня вже готує ваш рецепт.</p>
+      <button class="btn btn-red popup-ok" type="button">
+        <span data-i18n="popup.ok">OK</span> <i></i>
+      </button>
     </div>
   </div>
 
-  <script src="js/i18n.js?v=6"></script>
-  <script src="js/main.js?v=6"></script>
+  <script src="js/i18n.js?v=7"></script>
+  <script src="js/main.js?v=7"></script>
 </body>
 </html>
