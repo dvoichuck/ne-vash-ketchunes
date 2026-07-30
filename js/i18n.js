@@ -21,7 +21,7 @@ const translations = {
     "about.title": "Ми знаємо ринок<br />зсередини",
     "about.copy":
       "<strong>Ne Vash Ketchunes</strong> — це команда практикуючих спеціалістів, які знають партнерську індустрію зсередини. Ми запускаємо партнерські програми, розвиваємо бренди й медіапроєкти, організовуємо заходи, збираємо системи оцінки ефективності, займаємось PR і креативом.",
-    "about.side": "Ne Vash.<br />Не просто ще одне агентство",
+    "about.side": "Not Just Another Agency",
     "about.ingredients": "наші інгредієнти",
     "ing.1": "Performance marketing",
     "ing.2": "Strategic &amp; PR",
@@ -152,7 +152,7 @@ const translations = {
     "about.title": "We Know the Market<br />from the Inside",
     "about.copy":
       "<strong>Ne Vash Ketchunes</strong> is a team of practicing specialists who know the affiliate industry from the inside. We launch partner programs, grow brands and media projects, run events, build performance systems, and handle PR and creative.",
-    "about.side": "Ne Vash.<br />Not Just Another Agency",
+    "about.side": "Not Just Another Agency",
     "about.ingredients": "our ingredients",
     "ing.1": "Performance marketing",
     "ing.2": "Strategic &amp; PR",
